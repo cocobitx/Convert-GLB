@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="/assets/icon-D5DJRK72.png">
+  <title>converter GLB </title>
+  <script src="/assets/js/tailwindcss.js"></script>
+</head>
+<body>
+  <div class="w-screen h-screen flex items-center justify-center bg-gray-50">
+    <main class="bg-white rounded-lg p-6">
+      <div class="flex items-center justify-between">
+        <h1 class="text-xl font-bold text-gray-700">Convertir modelo a GLB </h1>
+        <p class="text-sm">v1.0.0</p>
+      </div>
+      <p class="text-gray-700 my-3">Sube un <strong>ZIP</strong> con los archivos (*.model, *.material, textures...), o sube los archivos directamente.</p>
+
+      <div class="border rounded border-dotted p-2">
+        <p class="text-gray-700 mb-2">Paso 1: Cargar archivos</p>
+        <div class="flex">
+          <input class="w-1/2 text-gray-700 file:bg-blue-600 file:border-none file:text-white file:px-3 file:py-2 file:rounded-md" type="file" id="zipInput" accept=".zip" />
+          <input class="w-1/2 text-gray-700 ml-3 file:bg-blue-600 file:border-none file:text-white file:px-3 file:py-2 file:rounded-md" type="file" id="filesInput" multiple />
+        </div>
+      </div>
+      <div class="flex mt-2 border border-dotted p-2">
+        <div class="w-1/2">
+          <p class="text-gray-700 mb-2">Paso 2: Cargar ZIP a consola</p>
+          <button class="w-40 py-1 bg-blue-600 text-white rounded-md" id="loadZip">Cargar ZIP</button>
+        </div>
+        <div class="w-1/2 ml-3">
+          <p class="text-gray-700 mb-2">Paso 3: Iniciar proceso</p>
+          <button class="w-40 py-1 bg-blue-600 text-white rounded-md" id="convertBtn">Convertir a .glb</button>
+        </div>
+      </div>
+
+      <div class="relative mt-2 overflow-hidden w-full max-w-full">
+        <div class="absolute top-0 left-0 w-full bg-black/30 backdrop-blur-sm px-2 rounded-md">
+          <p class="text-white">Consola</p>
+        </div>
+        <div id="log" class="w-full h-72 bg-gray-800 rounded-lg pt-6 px-2 text-white overflow-y-auto whitespace-pre-wrap text-sm"></div>
+      </div>
+
+      <a class="hidden text-center mt-2 underline" id="downloadLink">Descargar .glb</a>
+    </main>
+  </div>
+
+  <script src="/assets/js/pako.js"></script>
+  <script src="/assets/js/jszip.js"></script>
+  <script src="/assets/js/index.js"></script>
+</body>
+</html>
